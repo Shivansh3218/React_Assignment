@@ -7,9 +7,9 @@ function App() {
     if(!task){
       alert("enter a valid task")
     }
-    if(task)
+    if(task )
     {
-      settodo([...todo, task]);
+      settodo([...todo, task]);  
     }
     
   };
@@ -22,7 +22,7 @@ function App() {
         placeholder="Enter your task"
         value={task}
         onChange={(e) => {
-          settask(e.target.value);
+          settask(e.target.value)
         }}
       />
       <button onClick={addtask} className="submit">
@@ -31,29 +31,34 @@ function App() {
 
       {todo.map((item, index) => (
         <div className="covering">
-          <input type="text" className="input_field" value={item} />
+          <p type="text" id={item} className="input_field" >{item}</p>
           <button
             className="edit"
-            onClick={() => {
+            onClick={(e) => {
               let int = document.getElementsByClassName("input_field")[0];
-              console.log(int);
-              let btn = document.querySelector(".edit");
-              if (btn.innerHTML === "Edit") {
-                btn.innerHTML = "Save";
-                int.removeAttribute("readonly", "readonly");
-              } else if (btn.innerHTML === "Save") {
-                btn.innerHTML = "Edit";
-                int.setAttribute("readonly", "readonly");
+                let btn = document.querySelector(".edit");
+                if (btn.innerHTML === "Edit") {
+                  btn.innerHTML = "Save";
+                  int.removeAttribute( "readonly");
+                } else if (btn.innerHTML === "Save") {
+                  btn.innerHTML = "Edit";
+                  int.setAttribute("readonly", "readonly");
               }
+            
             }}
           >
             Edit
           </button>
           <button
             className="delete"
-            onClick={() => {
-              let filteredtask = todo.filter((value) => value !== task);
+            onClick={(i) => {
+              let int = document.getElementsByClassName("input_field")[0];
+              let on=int.innerHTML
+              let filteredtask = todo.filter((value) => value !==on);
               settodo([...filteredtask]);
+              // const newTodos = [...todo];
+              // newTodos.splice(i,1)
+              // settodo([newTodos]);
             }}
           >
             Delete

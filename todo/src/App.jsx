@@ -6,19 +6,22 @@ function App(){
   let [task,settask]= useState("")
   let addtask = ()=>{
     settodo([...todo,task])
+    task=""
   }
 return(
-  <>
-  <input type="text" value={task} onChange={(e)=>{
+  < div className="card">
+    <h1 className="heading">To-Do-App</h1>
+  <input className="content" type="text" value={task}onChange={(e)=>{
    settask( e.target.value)
-  }} name="" id="" />
-  <button onClick={addtask}>Submit</button>
+  }}/>
+  <button onClick={addtask} className = "submit">Submit</button>
   
   {
-   todo.map(item=><div>
-    <h1 className="content" >{item}</h1>
-    <button>edit</button>
+   todo.map((item, index)=><div className="covering">
+    <input type="text" className="content" value={item}/>
+    <button className="edit">edit</button>
     <button 
+    className="delete"
     onClick={()=>{
     let filteredtask = todo.filter((value)=>value!==task);
     settodo([...filteredtask])
@@ -26,7 +29,7 @@ return(
     >delete</button>
    </div>)
   }
-  </>
+  </div>
 )
 
 }

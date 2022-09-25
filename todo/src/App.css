@@ -11,7 +11,7 @@ body{
   color: aliceblue;
 }
 .card{
-  width:24rem;
+  width:31rem;
   background-color: rgb(38, 42, 38);
   height: 300px;
   border: 2px solid red;
@@ -28,9 +28,10 @@ body{
   box-shadow: 2px 2px 10px;
   margin: 30px;
   width: 12rem;
+  padding-left: 5px;
 }
 .edit,.delete,.submit{
-margin: 5x;
+margin: 10px;
 border: none;
 padding: 5px;
 width: 5rem;
@@ -45,5 +46,21 @@ color: white;
   color: whitesmoke;
 }
 .submit{
-  background-color: gray;
+  background-color: rgb(195, 255, 202);
+  color: black;
+}
+.submit:hover{
+  cursor: pointer;
+  translate: 2px 2px ;
+  transition: 0.4s;
+}
+.delete:hover{
+  cursor: pointer;
+  translate: 2px 2px ;
+  transition: 0.4s;
+}
+.edit:hover{
+  cursor: pointer;
+  translate: 2px 2px ;
+  transition: 0.4s;
 }

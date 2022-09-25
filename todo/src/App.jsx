@@ -15,17 +15,19 @@ return(
   <button onClick={addtask}>Submit</button>
   
   {
-    todo.forEach(i=>{
-      <h1>{i}</h1>
-    })
+   todo.map(item=><div>
+    <h1 className="content" >{item}</h1>
+    <button>edit</button>
+    <button 
+    onClick={()=>{
+    let filteredtask = todo.filter((value)=>value!==task);
+    settodo([...filteredtask])
+    }}
+    >delete</button>
+   </div>)
   }
   </>
 )
 
 }
-
-
-
-  
-
 export default App;

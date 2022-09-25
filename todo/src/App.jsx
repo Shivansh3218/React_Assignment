@@ -1,33 +1,31 @@
 import "./App.css";
-import React from "react";
+import React ,{useState} from "react";
+function App(){
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      todo: [],
-    };
+  let [todo,settodo]= useState([])
+  let [task,settask]= useState("")
+  let addtask = ()=>{
+    settodo([...todo,task])
   }
-  change = (e) => {
-    this.setState({
-      todo: e.target.value,
-    });
-  };
-  createtodo = () => {
-      <div>{
-        <input type="text" value={this.state.todo} id="" />
-        }</div>
-  };
-  render() {
-    return (
-      <>
-        <div>
-          <input type="text" onChange={this.change} />
-          <button onClick={this.createtodo}>create to do</button>
-        </div>
-      </>
-    );
+return(
+  <>
+  <input type="text" value={task} onChange={(e)=>{
+   settask( e.target.value)
+  }} name="" id="" />
+  <button onClick={addtask}>Submit</button>
+  
+  {
+    todo.forEach(i=>{
+      <h1>{i}</h1>
+    })
   }
+  </>
+)
+
 }
+
+
+
+  
 
 export default App;

@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import React, { useState } from "react";
 function App() {
   let [todo, settodo] = useState([]);
@@ -44,23 +44,16 @@ function App() {
                   btn.innerHTML = "Edit";
                   int.setAttribute("readonly", "readonly");
               }
-            
             }}
           >
             Edit
           </button>
           <button
             className="delete"
-            onClick={(i) => {
-              let int = document.getElementsByClassName("input_field")[0];
-              let on=int.innerHTML
-              let filteredtask = todo.filter((value) => value !==on);
-              settodo([...filteredtask]);
-              // const newTodos = [...todo];
-              // newTodos.splice(i,1)
-              // settodo([newTodos]);
-            }}
-          >
+            onClick={() => {
+              let filteredItems = todo.filter((x) => x !== item);
+              settask([...filteredItems])
+             }}>
             Delete
           </button>
         </div>
